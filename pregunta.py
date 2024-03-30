@@ -25,7 +25,7 @@ def clean_data():
 
     resultado["idea_negocio"] = [
         str.lower(idea.replace("_", " ").replace("-", " "))
-        for idea in df["idea_negocio"]
+        for idea in resultado["idea_negocio"]
     ]
 
     resultado.barrio = [
@@ -58,9 +58,9 @@ def clean_data():
 
     resultado["monto_del_credito"] = [
         int(monto.replace("$ ", "").replace(".00", "").replace(",", ""))
-        for monto in df["monto_del_credito"]
+        for monto in resultado["monto_del_credito"]
     ]
-    resultado["monto_del_credito"] = df["monto_del_credito"].astype(int)  ##
+    resultado["monto_del_credito"] = resultado["monto_del_credito"].astype(int)  ##
     resultado.drop_duplicates(inplace=True)
 
     return resultado
